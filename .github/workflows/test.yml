@@ -1,0 +1,16 @@
+name: react demo workflow
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: retrieve my Code from github repository
+        uses: actions/checkout@v3
+      - name: Install Nodejs
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 18
+      - name: Install the dependencies
+        run: npm ci
+      - name: run our tests
+        run: npm test
